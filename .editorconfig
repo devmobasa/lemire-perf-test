@@ -1,0 +1,236 @@
+# ------------------------------------------------------------------------
+#  .editorconfig  –  Roslyn + ReSharper  (spaces inside method parameters)
+# ------------------------------------------------------------------------
+root = true
+
+
+############################################################################
+#  GLOBAL DEFAULTS
+############################################################################
+[*]
+indent_style               = space
+indent_size                = 4
+tab_width                  = 4
+charset                    = utf-8
+end_of_line                = lf
+trim_trailing_whitespace   = true
+insert_final_newline       = true
+max_line_length            = 160
+
+
+############################################################################
+#  ANALYZER-SEVERITY BASELINES (examples from your original file)
+############################################################################
+dotnet_analyzer_diagnostic.category-roslynator.severity        = warning
+roslynator_analyzers.enabled_by_default                         = true
+roslynator_refactorings.enabled                                 = true
+dotnet_diagnostic.RCS1124.severity                              = suggestion
+dotnet_diagnostic.RCS1246.severity                              = suggestion
+dotnet_diagnostic.RCS1077.severity                              = suggestion
+# Match Oxlint's default maximum cyclomatic complexity. CA1502 is provided by
+# the .NET SDK analyzers but is disabled by default.
+dotnet_diagnostic.CA1502.severity                               = error
+
+############################################################################
+#  C# / Razor ( Roslyn + ReSharper )
+############################################################################
+[*.{cs,csx,razor}]
+end_of_line = lf
+
+##### Roslyn – core code-style / formatting  ################################
+csharp_preferred_modifier_order                               = public, private, protected, internal, new, static, abstract, virtual, sealed, readonly, override, extern, unsafe, volatile, async
+dotnet_style_predefined_type_for_locals_parameters_members     = true:suggestion
+dotnet_style_predefined_type_for_member_access                 = true:suggestion
+dotnet_style_require_accessibility_modifiers                   = for_non_interface_members:suggestion
+csharp_style_namespace_declarations                            = file_scoped:warning
+csharp_style_var_for_built_in_types                            = true:suggestion
+csharp_style_var_when_type_is_apparent                         = true:suggestion
+csharp_style_var_elsewhere                                     = true:suggestion
+csharp_prefer_braces                                           = true:warning
+dotnet_sort_system_directives_first                            = true
+
+##### Roslyn – spacing around method parentheses ( **your key requirement** )
+#  No space before '(' after the method name
+csharp_space_between_method_declaration_name_and_open_parenthesis = false
+csharp_space_between_method_call_name_and_opening_parenthesis     = false
+#  Space inside parameter lists  →  Foo( int x )   and   Foo( 42 )
+csharp_space_between_method_declaration_parameter_list_parentheses  = true
+csharp_space_between_method_call_parameter_list_parentheses         = true
+#  Space in empty lists  →  Bar( )
+csharp_space_between_method_declaration_empty_parameter_list_parentheses = true
+csharp_space_between_method_call_empty_parameter_list_parentheses        = true
+
+##### Roslyn – other spacing rules
+csharp_space_after_keywords_in_control_flow_statements           = true
+csharp_space_after_cast                                          = true
+csharp_space_before_colon_in_inheritance_clause                  = true
+csharp_space_after_colon_in_inheritance_clause                   = true
+csharp_space_around_binary_operators                             = before_and_after
+csharp_space_between_parentheses                                 = control_flow_statements, type_casts
+
+##### Roslyn – new-line & wrapping
+csharp_new_line_before_open_brace                 = all
+csharp_new_line_before_else                       = true
+csharp_new_line_before_catch                      = true
+csharp_new_line_before_members_in_object_initializers = true
+csharp_preserve_single_line_blocks                = false
+csharp_preserve_single_line_statements            = false
+
+##### Roslyn – misc expression-level preferences (kept)
+# Prefer a separate braced guard over an inline throw expression.
+csharp_style_throw_expression                     = false:warning
+# Explicit braced guards are intentional; keep their exception construction visible.
+dotnet_diagnostic.CA1510.severity                   = none
+dotnet_diagnostic.CA1513.severity                   = none
+csharp_style_expression_bodied_methods            = true:suggestion
+csharp_style_expression_bodied_constructors       = false:suggestion
+csharp_style_expression_bodied_properties         = when_on_single_line:suggestion
+csharp_style_expression_bodied_indexers           = when_on_single_line:suggestion
+csharp_style_expression_bodied_accessors          = when_on_single_line:suggestion
+csharp_style_pattern_matching_over_as_with_null_check   = true:suggestion
+csharp_style_pattern_matching_over_is_with_cast_check   = true:suggestion
+csharp_style_inlined_variable_declaration               = true:suggestion
+csharp_style_prefer_switch_expression                   = true:suggestion
+dotnet_style_object_initializer                          = true:suggestion
+dotnet_style_collection_initializer                      = true:suggestion
+dotnet_style_parentheses_in_arithmetic_binary_operators   = always_for_clarity:none
+dotnet_style_parentheses_in_relational_binary_operators   = always_for_clarity:none
+dotnet_style_parentheses_in_other_binary_operators        = always_for_clarity:none
+dotnet_style_parentheses_in_other_operators               = never_if_unnecessary:silent
+
+
+############################################################################
+#  RESHARPER PROPERTIES  ( FULL LIST RESTORED )
+############################################################################
+resharper_autodetect_indent_settings                       = true
+resharper_braces_for_for                                   = required
+resharper_braces_for_foreach                               = required
+resharper_braces_for_ifelse                                = required
+resharper_braces_for_while                                 = required
+resharper_enforce_line_ending_style                        = true
+resharper_formatter_off_tag                                = @formatter:off
+resharper_formatter_on_tag                                 = @formatter:on
+resharper_keep_existing_declaration_block_arrangement      = true
+resharper_keep_existing_embedded_block_arrangement         = true
+resharper_keep_existing_enum_arrangement                   = true
+resharper_keep_existing_initializer_arrangement            = false
+resharper_local_function_body                              = expression_body
+resharper_method_or_operator_body                          = expression_body
+resharper_place_accessorholder_attribute_on_same_line      = false
+resharper_show_autodetect_configure_formatting_tip         = false
+resharper_space_before_checked_parentheses                 = true
+resharper_space_before_default_parentheses                 = true
+resharper_space_before_nameof_parentheses                  = true
+resharper_space_before_new_parentheses                     = true
+resharper_space_before_sizeof_parentheses                  = true
+resharper_space_before_typeof_parentheses                  = true
+resharper_space_within_checked_parentheses                 = true
+resharper_space_within_default_parentheses                 = true
+resharper_space_within_nameof_parentheses                  = true
+resharper_space_within_new_parentheses                     = true
+resharper_space_within_single_line_array_initializer_braces = false
+resharper_space_within_sizeof_parentheses                  = true
+resharper_space_within_typeof_parentheses                  = true
+resharper_use_indent_from_vs                               = false
+#  Parameter-list spacing for declarations & calls
+resharper_space_within_method_declaration_parentheses      = true
+resharper_space_within_method_call_parentheses             = true
+resharper_csharp_keep_user_linebreaks                      = false
+resharper_csharp_align_first_arg_by_paren                  = false
+resharper_csharp_align_multiline_argument                  = false
+resharper_csharp_wrap_arguments_style                      = wrap_if_long
+resharper_csharp_max_invocation_arguments_on_line          = 6
+resharper_csharp_keep_existing_invocation_parens_arrangement = false
+resharper_csharp_wrap_before_invocation_lpar               = false
+resharper_csharp_wrap_after_invocation_lpar                = false
+resharper_csharp_wrap_before_invocation_rpar               = false
+resharper_csharp_space_between_typecast_parentheses        = true
+resharper_csharp_space_within_if_parentheses               = true
+resharper_csharp_space_between_parentheses_of_control_flow_statements = true
+
+
+############################################################################
+#  RESHARPER INSPECTION-SEVERITY LINES  ( FULL LIST RESTORED )
+############################################################################
+resharper_arrange_accessor_owner_body_highlighting              = none
+resharper_arrange_constructor_or_destructor_body_highlighting   = suggestion
+resharper_arrange_local_function_body_highlighting              = suggestion
+resharper_arrange_method_or_operator_body_highlighting          = suggestion
+resharper_arrange_redundant_parentheses_highlighting            = none
+resharper_arrange_this_qualifier_highlighting                   = none
+resharper_built_in_type_reference_style_for_member_access_highlighting = suggestion
+resharper_built_in_type_reference_style_highlighting            = suggestion
+resharper_enforce_do_while_statement_braces_highlighting        = suggestion
+resharper_enforce_fixed_statement_braces_highlighting           = suggestion
+resharper_enforce_foreach_statement_braces_highlighting         = suggestion
+resharper_enforce_for_statement_braces_highlighting             = suggestion
+resharper_enforce_if_statement_braces_highlighting              = suggestion
+resharper_enforce_lock_statement_braces_highlighting            = suggestion
+resharper_enforce_using_statement_braces_highlighting           = suggestion
+resharper_enforce_while_statement_braces_highlighting           = suggestion
+resharper_inconsistent_naming_highlighting                      = suggestion
+resharper_redundant_base_qualifier_highlighting                 = none
+resharper_suggest_var_or_type_built_in_types_highlighting       = suggestion
+resharper_suggest_var_or_type_elsewhere_highlighting            = suggestion
+resharper_suggest_var_or_type_simple_types_highlighting         = suggestion
+resharper_unused_auto_property_accessor_global_highlighting     = hint
+resharper_web_config_module_not_resolved_highlighting           = warning
+resharper_web_config_type_not_resolved_highlighting             = warning
+resharper_web_config_wrong_module_highlighting                  = warning
+
+
+############################################################################
+#  NAMING CONVENTIONS  (deduplicated but unchanged in content)
+############################################################################
+# -- Interface types → PascalCase with "I" prefix
+dotnet_naming_symbols.interface_type_symbol.applicable_kinds    = interface
+dotnet_naming_style.interface_type_style.capitalization         = pascal_case
+dotnet_naming_style.interface_type_style.required_prefix        = I
+dotnet_naming_rule.interface_types_must_be_prefixed_with_i.symbols = interface_type_symbol
+dotnet_naming_rule.interface_types_must_be_prefixed_with_i.style   = interface_type_style
+dotnet_naming_rule.interface_types_must_be_prefixed_with_i.severity = warning
+
+# -- Non-interface types → PascalCase
+dotnet_naming_symbols.non_interface_type_symbol.applicable_kinds = class,struct,enum,delegate
+dotnet_naming_style.non_interface_type_style.capitalization      = pascal_case
+dotnet_naming_rule.non_interface_types_are_pascal_case.symbols    = non_interface_type_symbol
+dotnet_naming_rule.non_interface_types_are_pascal_case.style      = non_interface_type_style
+dotnet_naming_rule.non_interface_types_are_pascal_case.severity   = warning
+
+# -- Methods / Properties / Events → PascalCase
+dotnet_naming_symbols.member_symbol.applicable_kinds = method,property,event
+dotnet_naming_style.member_style.capitalization      = pascal_case
+dotnet_naming_rule.members_are_pascal_case.symbols   = member_symbol
+dotnet_naming_rule.members_are_pascal_case.style     = member_style
+dotnet_naming_rule.members_are_pascal_case.severity  = warning
+
+# -- Parameters → camelCase
+dotnet_naming_symbols.parameter_symbol.applicable_kinds = parameter
+dotnet_naming_style.parameter_style.capitalization      = camel_case
+dotnet_naming_rule.parameters_are_camel_case.symbols    = parameter_symbol
+dotnet_naming_rule.parameters_are_camel_case.style      = parameter_style
+dotnet_naming_rule.parameters_are_camel_case.severity   = warning
+
+# -- Private instance fields → _camelCase
+dotnet_naming_symbols.private_field_symbol.applicable_kinds           = field
+dotnet_naming_symbols.private_field_symbol.applicable_accessibilities = private
+dotnet_naming_style.private_field_style.capitalization                = camel_case
+dotnet_naming_style.private_field_style.required_prefix               = _
+dotnet_naming_rule.private_fields_are_camel_case.symbols              = private_field_symbol
+dotnet_naming_rule.private_fields_are_camel_case.style                = private_field_style
+dotnet_naming_rule.private_fields_are_camel_case.severity             = warning
+
+# -- Constants (const fields) → PascalCase
+dotnet_naming_style.pascal_case.capitalization = pascal_case
+dotnet_naming_symbols.constant_fields.applicable_kinds = field
+dotnet_naming_symbols.constant_fields.required_modifiers = const
+dotnet_naming_rule.constant_fields_must_be_pascal_case.symbols        = constant_fields
+dotnet_naming_rule.constant_fields_must_be_pascal_case.style          = pascal_case
+dotnet_naming_rule.constant_fields_must_be_pascal_case.severity       = warning
+
+# -- Static readonly fields → PascalCase
+dotnet_naming_symbols.static_readonly_fields.applicable_kinds         = field
+dotnet_naming_symbols.static_readonly_fields.required_modifiers       = static,readonly
+dotnet_naming_rule.static_readonly_fields_must_be_pascal_case.symbols = static_readonly_fields
+dotnet_naming_rule.static_readonly_fields_must_be_pascal_case.style   = pascal_case
+dotnet_naming_rule.static_readonly_fields_must_be_pascal_case.severity = warning

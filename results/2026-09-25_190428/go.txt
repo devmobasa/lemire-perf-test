@@ -1,0 +1,6 @@
+Go go1.27.0-X:nodwarf5
+strconv.Itoa(i)            14.11 ns/string      70.9 M/s   (check 8192)
+Go go1.27.0-X:nodwarf5
+strconv.Itoa(i)            12.05 ns/string      83.0 M/s   (check 8192)
+Go go1.27.0-X:nodwarf5
+strconv.Itoa(i)            12.04 ns/string      83.1 M/s   (check 8192)

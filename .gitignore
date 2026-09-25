@@ -1,0 +1,23 @@
+build/
+csharp/bin/
+csharp/obj/
+lemire/rust/target/
+__pycache__/
+
+# Images stay local and are never committed (screenshots of the X article, Lemire's images).
+screenshots/
+*.png
+*.webp
+*.jpg
+*.jpeg
+*.gif
+
+# Local context and presentation files.
+AGENTS.md
+CLAUDE.md
+chart/
+lemire/post.md
+lemire/plot.py
+lemire/featured.py
+lemire/run_all.sh
+lemire/results_big4.txt

@@ -1,0 +1,18 @@
+Python 3.14.7
+loop only          24.37 ns/string      41.0 M/s
+""                 24.30 ns/string      41.2 M/s
+str()              31.45 ns/string      31.8 M/s
+str(i)             57.14 ns/string      17.5 M/s
+p[i&15] + 'x'      52.79 ns/string      18.9 M/s
+Python 3.14.7
+loop only          24.55 ns/string      40.7 M/s
+""                 24.50 ns/string      40.8 M/s
+str()              31.33 ns/string      31.9 M/s
+str(i)             57.20 ns/string      17.5 M/s
+p[i&15] + 'x'      52.79 ns/string      18.9 M/s
+Python 3.14.7
+loop only          24.17 ns/string      41.4 M/s
+""                 24.20 ns/string      41.3 M/s
+str()              31.20 ns/string      32.1 M/s
+str(i)             57.67 ns/string      17.3 M/s
+p[i&15] + 'x'      52.79 ns/string      18.9 M/s

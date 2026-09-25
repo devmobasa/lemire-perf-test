@@ -1,0 +1,6 @@
+Nim 2.2.12
+$i                         11.75 ns/string      85.1 M/s   (check 8192)
+Nim 2.2.12
+$i                         11.73 ns/string      85.2 M/s   (check 8192)
+Nim 2.2.12
+$i                         11.39 ns/string      87.8 M/s   (check 8192)

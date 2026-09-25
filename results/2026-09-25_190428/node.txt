@@ -1,0 +1,18 @@
+Node v25.9.0
+loop only           0.35 ns/string    2884.1 M/s
+""                  0.35 ns/string    2880.8 M/s
+String()            2.93 ns/string     340.8 M/s
+String(i)          19.14 ns/string      52.2 M/s
+p[i&15] + 'x'       6.43 ns/string     155.4 M/s
+Node v25.9.0
+loop only           0.35 ns/string    2880.1 M/s
+""                  0.35 ns/string    2888.3 M/s
+String()            2.92 ns/string     342.6 M/s
+String(i)          19.11 ns/string      52.3 M/s
+p[i&15] + 'x'       6.42 ns/string     155.8 M/s
+Node v25.9.0
+loop only           0.36 ns/string    2812.7 M/s
+""                  0.36 ns/string    2808.9 M/s
+String()            2.98 ns/string     335.3 M/s
+String(i)          19.33 ns/string      51.7 M/s
+p[i&15] + 'x'       6.53 ns/string     153.0 M/s

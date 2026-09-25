@@ -1,0 +1,6 @@
+C++ (Clang 22.1.8)
+to_string(i)                9.43 ns/string     106.1 M/s   (check 8192)
+C++ (Clang 22.1.8)
+to_string(i)                9.42 ns/string     106.2 M/s   (check 8192)
+C++ (Clang 22.1.8)
+to_string(i)                9.37 ns/string     106.7 M/s   (check 8192)

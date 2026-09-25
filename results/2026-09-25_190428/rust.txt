@@ -1,0 +1,9 @@
+Rust
+i.to_string()              10.17 ns/string      98.3 M/s   (check 8192)
+itoa + to_owned()           8.96 ns/string     111.6 M/s   (check 8192)
+Rust
+i.to_string()              10.19 ns/string      98.1 M/s   (check 8192)
+itoa + to_owned()           8.96 ns/string     111.6 M/s   (check 8192)
+Rust
+i.to_string()              10.15 ns/string      98.5 M/s   (check 8192)
+itoa + to_owned()           8.94 ns/string     111.9 M/s   (check 8192)

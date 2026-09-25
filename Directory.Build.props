@@ -1,0 +1,25 @@
+<Project>
+  <PropertyGroup>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsNotAsErrors>IL2026;IL3050</WarningsNotAsErrors>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <Deterministic>true</Deterministic>
+    <!-- dotnet format cannot analyze file-based apps, so builds enforce the .editorconfig style rules. -->
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <!-- Required for IDE0005 (unnecessary usings) on build; no XML docs are published. -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CA1305;CA1307;CA1309;CA1310;CA1848;CS1591</NoWarn>
+    <!-- IDE0046 (if to conditional return) and IDE0270 (null check to ?? throw) contradict the
+         explicit braced-guard style and csharp_style_throw_expression = false. -->
+    <NoWarn>$(NoWarn);IDE0046;IDE0270</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Thresholds for the code-metrics analyzers (CA1502 cyclomatic complexity). -->
+    <AdditionalFiles Include="$(MSBuildThisFileDirectory)CodeMetricsConfig.txt" />
+  </ItemGroup>
+</Project>

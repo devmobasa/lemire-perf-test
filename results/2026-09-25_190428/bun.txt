@@ -1,0 +1,18 @@
+Bun 1.3.14
+loop only           0.37 ns/string    2714.5 M/s
+""                  0.37 ns/string    2678.7 M/s
+String()            0.37 ns/string    2677.5 M/s
+String(i)          19.29 ns/string      51.8 M/s
+p[i&15] + 'x'       2.13 ns/string     470.2 M/s
+Bun 1.3.14
+loop only           0.37 ns/string    2717.6 M/s
+""                  0.37 ns/string    2683.3 M/s
+String()            0.37 ns/string    2687.5 M/s
+String(i)          19.29 ns/string      51.8 M/s
+p[i&15] + 'x'       2.16 ns/string     463.9 M/s
+Bun 1.3.14
+loop only           0.37 ns/string    2726.9 M/s
+""                  0.37 ns/string    2687.7 M/s
+String()            0.37 ns/string    2687.1 M/s
+String(i)          19.14 ns/string      52.3 M/s
+p[i&15] + 'x'       2.13 ns/string     470.0 M/s
