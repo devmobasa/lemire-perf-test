@@ -5,6 +5,7 @@ edition = "2021"
 
 [dependencies]
 itoa = "1"
+smartstring = "1.0.1"
 
 [profile.release]
 opt-level = 3
